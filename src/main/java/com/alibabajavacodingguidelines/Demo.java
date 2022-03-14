@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
 
@@ -176,10 +177,18 @@ public class Demo implements Serializable {
         long minutesThree = localDateTimeNow.until(localDateTimeFuture, ChronoUnit.MINUTES);
         System.out.println(minutesThree);
 
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        String dateStr = localDateTimeNow.format(dateTimeFormatter);
+        LocalDateTime localDateTime = LocalDateTime.parse("2022-03-11 09:25:30", dateTimeFormatter);
+
+        //产生随机数用Random类
         Random random = new Random();
         for(int i = 0; i < 20; i++){
             System.out.print(random.nextInt(2));
         }
+        System.out.println();
+
+        System.out.println(new Integer(42) == new Integer(42));
 
 
 
